@@ -1,0 +1,40 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Sales Customer","Sales SalesOrderDetail","Sales SalesOrderHeader","Sales SalesTerritory","Production Product","Production ProductCategory","Production ProductSubcategory"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Sales Customer'
+ref table DateTableTemplate_c9473bb8-43ef-4bc9-a426-d0cf7e314e80
+ref table LocalDateTable_73010c8b-4130-4b71-88a5-70a30c55f167
+ref table 'Sales SalesOrderDetail'
+ref table LocalDateTable_f15d1583-1ccf-4b3c-b501-4181a94ee3d2
+ref table 'Sales SalesOrderHeader'
+ref table LocalDateTable_09dd2cf2-1351-4124-86e0-b2738c588278
+ref table LocalDateTable_b378beeb-5a27-47b1-950a-33a2e37deea9
+ref table LocalDateTable_66e7dde1-3ac5-412e-8950-145526634f82
+ref table LocalDateTable_cf0bf446-c580-459f-9249-ef143e694407
+ref table 'Sales SalesTerritory'
+ref table LocalDateTable_9f878a8a-86d5-4425-b305-cbbfa3e2319d
+ref table 'Production Product'
+ref table LocalDateTable_900e6f59-e1a7-4d3e-9423-ef0627d00543
+ref table LocalDateTable_17ce31cf-5be1-41e7-8e88-da122319d8b8
+ref table LocalDateTable_f9832c45-722c-45e8-9924-915903a5146a
+ref table LocalDateTable_4b24a278-5212-49dd-a63f-716ce638ead4
+ref table 'Production ProductCategory'
+ref table LocalDateTable_bfbb39d2-0eab-41dd-a50f-2e30a4727c98
+ref table 'Production ProductSubcategory'
+ref table LocalDateTable_183b93c4-6dba-4693-bc2d-bba0560f3df6
+
+ref cultureInfo en-US
+
