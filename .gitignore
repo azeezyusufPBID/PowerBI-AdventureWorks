@@ -1,14 +1,24 @@
-**/.pbi/localSettings.json
-**/.pbi/cache.abf# Power BI project ignore rules
+# Power BI project ignore rules
+
+# Binary files (not version-control friendly)
 *.pbix
 *.pbit
 *.rdl
 *.rsm
+
+# Power BI Desktop local cache/settings inside PBIP folders
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Temp & cache files
 *.cache
 *.bak
 *.tmp
 *.lock.json
-*.DS_Store
+.DS_Store
+Thumbs.db
+
+# IDE / system files
 .vs/
 .vscode/
 .idea/
