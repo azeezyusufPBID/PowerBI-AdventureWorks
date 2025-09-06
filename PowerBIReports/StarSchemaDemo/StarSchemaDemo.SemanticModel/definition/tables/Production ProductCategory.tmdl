@@ -1,0 +1,53 @@
+table 'Production ProductCategory'
+	lineageTag: 13d01bdc-95f9-4066-844c-57be77a18aff
+
+	column ProductCategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: b4b7fd58-1655-42eb-a0d6-596126f724c6
+		summarizeBy: none
+		sourceColumn: ProductCategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 87216d55-8275-49b6-a8a0-a8d604d88917
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: c7935ebb-5629-4aea-b7c8-88747195d264
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4867f118-52ce-42e1-9975-9a23d8a9d323
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: ad9735a4-9228-4a8f-a8b0-7089c62d0799
+			defaultHierarchy: LocalDateTable_bfbb39d2-0eab-41dd-a50f-2e30a4727c98.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductCategory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "AdventureWorks2022"),
+				    Production_ProductCategory = Source{[Schema="Production",Item="ProductCategory"]}[Data]
+				in
+				    Production_ProductCategory
+
+	annotation PBI_ResultType = Table
+

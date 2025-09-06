@@ -1,0 +1,62 @@
+table 'Production ProductSubcategory'
+	lineageTag: c5842d4c-642b-481b-ab7a-478129ba996a
+
+	column ProductSubcategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: bccb3eb7-75ab-45b1-b6c5-52d59bb3973c
+		summarizeBy: none
+		sourceColumn: ProductSubcategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 2cefe096-6a19-41c4-bba8-c07434f51d50
+		summarizeBy: none
+		sourceColumn: ProductCategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 60078ffd-8f53-4f39-9d45-013b7efef129
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 99112d0d-473b-4a41-812c-7528fa03d86b
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a40c9d0c-2acd-4dc9-83f9-50e94f410dfd
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: cb48ba1a-996b-4e50-a416-adee36c9935c
+			defaultHierarchy: LocalDateTable_183b93c4-6dba-4693-bc2d-bba0560f3df6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production ProductSubcategory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "AdventureWorks2022"),
+				    Production_ProductSubcategory = Source{[Schema="Production",Item="ProductSubcategory"]}[Data]
+				in
+				    Production_ProductSubcategory
+
+	annotation PBI_ResultType = Table
+
