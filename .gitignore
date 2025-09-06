@@ -1,0 +1,16 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf# Power BI project ignore rules
+*.pbix
+*.pbit
+*.rdl
+*.rsm
+*.cache
+*.bak
+*.tmp
+*.lock.json
+*.DS_Store
+.vs/
+.vscode/
+.idea/
+bin/
+obj/
